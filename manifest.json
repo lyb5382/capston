@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "PhishGuard (피싱가드)",
+    "version": "1.0.0",
+    "description": "실시간 피싱 사이트 탐지 및 차단 확장 프로그램입니다.",
+    "author": "root",
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
+    "action": {
+        "default_popup": "pages/popup.html",
+        "default_icon": {
+            "16": "images/icon16.png",
+            "48": "images/icon48.png"
+        },
+        "default_title": "PhishGuard 상태 보기"
+    },
+    "permissions": [
+        "tabs",
+        "storage",
+        "alarms"
+    ],
+    "host_permissions": [
+        "*://*.virustotal.com/",
+        "*://raw.githubusercontent.com/"
+    ]
+}

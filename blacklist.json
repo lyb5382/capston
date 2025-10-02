@@ -1,0 +1,23 @@
+{
+    "version": 1.0,
+    "update_date": "2025-10-02",
+    "source": "PhishTank",
+    "blacklist": [
+      "http://secure-login-apple-id.com/us/",
+      "http://paypal-transaction-dispute-resolution.net/",
+      "https://wellsfargo-online-service-update.org/login",
+      "http://www.amazon-prime-rewards-claim.info/",
+      "http://chase-online-security-alert.com/",
+      "https://signin-microsoft-account-live.com/common",
+      "http://netflix-payment-update-required.net/",
+      "http://www.bankofamerica-customer-support.org/",
+      "https://irs-tax-refund-online-form.com/",
+      "http://dhl-track-package-delivery-status.info/",
+      "http://facebook-security-warning-pages.com/login-attempt",
+      "https://your-package-has-been-detained-usps.net/",
+      "http://google-drive-shared-document-access.com/",
+      "http://instagram-copyright-infringement-case.org/",
+      "https://steam-wallet-code-giveaway-free.com/"
+    ]
+  }
+  
