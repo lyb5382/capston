@@ -1,7 +1,3 @@
-// =========================================================================
-// 중요: 아래 'YourUsername'을 국장님의 GitHub ID로,
-// 'phishguard-blacklist-db'를 중앙 DB 저장소 이름으로 반드시 교체해야 합니다!
-// =========================================================================
 const BLACKLIST_URL = 'https://raw.githubusercontent.com/lyb5382/phishguard-db-manager/main/blacklist.json';
 
 // --- DB 자동 업데이트 로직 ---
@@ -55,5 +51,24 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
       // 피싱 사이트로 판단되면 경고 페이지로 즉시 이동
       chrome.tabs.update(tabId, { url: chrome.runtime.getURL('pages/warning.html') });
     }
+  }
+});
+
+// --- [추가된 기능] popup.js로부터 오는 메시지를 수신하고 응답하는 통신부 ---
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  // popup.js로부터 'getAnalysisResult'라는 명령을 받았는지 확인
+  if (request.command === "getAnalysisResult") {
+
+    // 비동기 작업(checkUrlAgainstBlacklist)을 수행하고, 그 결과를 응답으로 보냄
+    checkUrlAgainstBlacklist(request.url).then(isPhishing => {
+      if (isPhishing) {
+        sendResponse({ status: "DANGEROUS" }); // 위험 응답
+      } else {
+        sendResponse({ status: "SAFE" });      // 안전 응답
+      }
+    });
+
+    // 비동기 응답을 위해 메시지 채널을 열어두겠다는 신호
+    return true;
   }
 });

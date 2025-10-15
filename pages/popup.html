@@ -1,50 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 
 <head>
-    <title>PhishGuard</title>
     <meta charset="UTF-8">
-    <style>
-        body {
-            width: 250px;
-            font-family: sans-serif;
-            text-align: center;
-            padding: 10px;
-        }
-
-        h1 {
-            font-size: 18px;
-            color: #333;
-            margin: 10px 0;
-        }
-
-        .status {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .status-light {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #4CAF50;
-        }
-
-        .status-text {
-            font-weight: bold;
-            color: #4CAF50;
-        }
-    </style>
+    <title>PhishGuard</title>
+    <link rel="stylesheet" href="./popup.css">
 </head>
 
 <body>
-    <h1>PhishGuard</h1>
-    <div class="status">
-        <div class="status-light"></div>
-        <p class="status-text">시스템 정상 작동 중</p>
+    <div class="logo">
+        <img src="./imges/icon48.png" alt="PhishGuard Logo">
+        <span class="title">PhishGuard</span>
     </div>
+
+    <div class="card-container">
+        <div class="card">
+            <div class="card-title">시스템 상태</div>
+            <div class="card-content" id="system-status">
+                피싱 및 스미싱 위협으로부터 안전하게 보호받고 있습니다.
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <div class="card-title">현재 페이지 분석</div>
+            <div class="card-content" id="page-analysis-result">
+                분석 정보 로딩 중...
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <button class="btn" id="report-btn">현재 사이트 신고하기</button>
+    </div>
+
+    <script src="../scripts/popup.js"></script>
 </body>
 
 </html>
