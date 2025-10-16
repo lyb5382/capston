@@ -1,0 +1,259 @@
+/* 상태별 전체 배경색 설정 */
+body {
+    transition: background-color 0.5s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body.status-initial {
+    background-color: #212529;
+}
+
+body.status-safe {
+    background-color: #28a745;
+}
+
+body.status-danger {
+    background-color: #dc3545;
+}
+
+/* 어두운 배경에서 h1 제목이 잘 보이도록 색상 변경 */
+body.status-initial .container h1,
+body.status-danger .container h1,
+body.status-safe .container h1 {
+    color: #ffffff;
+}
+
+/* 기존 .container 및 기타 스타일 */
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 2rem;
+    transition: color 0.5s ease;
+}
+
+h2 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin: 2.5rem 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.checker-form,
+.add-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+select,
+input[type="text"] {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button {
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.checker-form button {
+    background-color: #007bff;
+}
+
+.add-form button {
+    background-color: #28a745;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.result-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.result-box.blacklisted {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.result-box.clean {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+
+/* --- [수정됨] 팝업 스타일 --- */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.popup-header {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.popup-content .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+    padding: 0;
+}
+
+.popup-content .close-btn:hover {
+    color: #333;
+}
+
+.popup-body {
+    margin-top: 10px;
+}
+
+.warning-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.popup-content h2 {
+    font-size: 1.5rem;
+    color: #dc3545;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.popup-content p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.popup-footer {
+    padding-top: 15px;
+}
+
+.popup-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.popup-button:hover {
+    background-color: #c82333;
+}
+
+.popup-main-warning {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.popup-reason-box {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-bottom: 25px;
+}
+
+.popup-reason-box strong {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.popup-reason-detail {
+    font-size: 0.95rem;
+    color: #dc3545;
+    margin: 0;
+    text-align: left;
+    font-weight: 500;
+}
+
+.blacklist-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.blacklist-table th,
+.blacklist-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
